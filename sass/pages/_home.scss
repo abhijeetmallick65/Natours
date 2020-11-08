@@ -1,0 +1,138 @@
+.section-about {
+  background-color: $Light-grey;
+  margin-top: -20vh;
+  padding: 20rem 10rem 30rem 10rem;
+  @include respond(tab-land) {
+    padding: 25rem 10rem 25rem 10rem;
+  }
+  @include respond(tab-port) {
+    padding: 25vh 10rem 48rem 10rem;
+  }
+  @include respond(phone) {
+    padding: 25vh 10rem 38rem 10rem;
+  }
+  &-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    @include respond(tab-port) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// section -  stories
+.section-stories {
+  padding: 15rem 0;
+  position: relative;
+  @include respond(tab-port) {
+    padding: 5rem 0;
+  }
+  .stories-grid {
+    width: 75%;
+    margin: 10rem auto;
+    background-color: rgba($Light-color, 0.6);
+    padding: 6rem;
+    padding-left: 9rem;
+    font-size: $font-size;
+    border-radius: 3px;
+    box-shadow: 0 3rem 6rem rgba($color: $Black, $alpha: 0.2);
+    transform: skewX(-12deg);
+    @include respond(tab-port) {
+      width: 100%;
+      margin: 5rem auto;
+      padding-left: 6rem;
+    }
+    @include respond(phone) {
+      width: 100%;
+      margin: 5rem auto;
+      transform: none;
+    }
+    .stories-img {
+      width: 15rem;
+      height: 15rem;
+      float: left;
+      transform: translateX(-3rem) skewX(12deg);
+      @include respond(phone) {
+        transform: translateX(-3rem) skewX(0);
+      }
+      position: relative;
+      overflow: hidden;
+      border-radius: 50%;
+      -webkit-shape-outside: circle(50% at 50% 50%);
+      shape-outside: circle(50% at 50% 50%);
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+      position: relative;
+      color: white;
+      backface-visibility: hidden;
+      &-i {
+        height: 100%;
+        transform: translateX(-4rem) scale(1.4);
+        transition: all 0.5s;
+        overflow: hidden;
+      }
+    }
+    .stories-content {
+      transform: translatex(-1rem) skewX(12deg);
+      @include respond(tab-port) {
+        transform: translatex(1rem) skewX(12deg);
+      }
+      @include respond(phone) {
+        transform: translatex(0rem) skewX(0);
+      }
+    }
+    .stories-caption {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, 20%);
+      color: $Light-color;
+      text-transform: uppercase;
+      font-size: 1.7rem;
+      text-align: center;
+      opacity: 0;
+      transition: all 0.5s;
+      backface-visibility: hidden;
+    }
+    &:hover .stories-caption {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+    &:hover .stories-img-i {
+      backface-visibility: hidden;
+      transform: translateX(-4rem) scale(1);
+      -webkit-filter: blur(0) brightness(80%);
+      filter: blur(4px) brightness(80%);
+    }
+  }
+}
+
+// section-form
+.section-form {
+  padding: 15rem 0;
+  background-image: linear-gradient(to right bottom, $Light-green, $Dark-green);
+
+  .book {
+    background-image: linear-gradient(
+        to right,
+        rgba($Light-color, 0.9) 0%,
+        rgba($Light-color, 0.9) 100%
+      ),
+      url("/dist/img/nat-10.jpg");
+    background-size: cover;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color: $Black, $alpha: 0.2);
+
+    h2 {
+      transform: translateX(-2rem);
+    }
+    .form {
+      width: 50%;
+      padding: 6rem;
+      @include respond(tab-port) {
+        width: 100%;
+        padding: 3rem;
+      }
+    }
+  }
+}

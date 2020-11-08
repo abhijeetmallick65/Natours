@@ -1,0 +1,83 @@
+// buttons
+
+%btn-shared {
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  border-radius: 10rem;
+  transition: all 0.1s;
+  font-size: 1.6rem;
+  position: relative;
+  // animation: animate3 0.5s ease-out 0.75s forwards;
+  // visibility: hidden;
+  animation: animate3 0.5s ease-out 0.75s backwards;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($Black, 0.2);
+  }
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba($Black, 0.2);
+  }
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: inherit;
+    background-color: inherit;
+    z-index: -1;
+    border-radius: inherit;
+    transition: all 0.4s;
+  }
+  &:hover::after {
+    opacity: 0;
+    transform: scalex(1.4) scaley(1.5);
+  }
+}
+.btn {
+  &-light {
+    @extend %btn-shared;
+    color: $Dark-color;
+    background-color: $Light-color;
+    margin-top: 6rem;
+  }
+  &-green {
+    @extend %btn-shared;
+    color: $Light-color;
+    background-color: $Light-green;
+    margin: 0 auto;
+  }
+  // correct procedure of making a button
+  &-text {
+    &:link,
+    &:visited {
+      display: inline-block;
+      color: $Medium-green;
+      padding: 0.5rem;
+      border-bottom: 2px solid $Medium-green;
+      font-size: $font-size;
+      text-transform: initial;
+      transition: all 0.3s;
+      margin-top: 1rem;
+    }
+
+    &:hover {
+      background-color: $Light-green;
+      color: $Light-color !important;
+      box-shadow: 0 1rem 2rem rgba($color: $Black, $alpha: 0.2);
+      transform: translatey(-2px);
+    }
+
+    &:active {
+      box-shadow: 0 0.5rem 0.8rem rgba($Black, 0.4);
+      transform: translateY(0);
+    }
+  }
+}

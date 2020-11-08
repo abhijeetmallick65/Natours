@@ -1,0 +1,64 @@
+.header {
+  position: relative;
+  display: flex;
+  height: 95vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: linear-gradient(
+      to right,
+      rgba($Light-green, 0.8),
+      rgba($Dark-green, 0.8)
+    ),
+    url("../img/hero.jpg");
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  @include respond(tab-port) {
+    clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+  }
+  @include respond(phone) {
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
+  .logo {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+
+    img {
+      height: 3.5rem;
+    }
+  }
+  color: $Light-color;
+  text-transform: uppercase;
+  &-content {
+    transform: translate(0, -40%);
+    padding: 1rem;
+    backface-visibility: hidden;
+  }
+  h1 {
+    animation: animate1 1s ease-out;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    @include respond(tab-port) {
+      font-size: 6rem;
+    }
+    @include respond(phone) {
+      font-size: 3rem;
+    }
+  }
+
+  p {
+    animation: animate2 1s ease-out;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.7rem;
+    @include respond(phone) {
+      letter-spacing: 1rem;
+      font-size: 1.7rem;
+      text-align: center;
+      transform: translateX(0);
+    }
+  }
+}

@@ -1,0 +1,31 @@
+.text-center {
+  text-align: center !important;
+}
+
+.container {
+  max-width: 114rem;
+  margin: 0 auto;
+  @include respond(tab-port) {
+    max-width: 50rem;
+    padding: 0 2rem;
+  }
+  //   border: 1px red solid;
+}
+
+// section about
+.section-about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 6rem;
+}
+
+// margins
+.margin-large {
+  margin-bottom: 8rem !important;
+}
+.margin-medium {
+  margin-bottom: 4rem !important;
+}
+.margin-small {
+  margin-bottom: 1.5rem !important;
+}

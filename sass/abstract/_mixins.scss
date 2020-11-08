@@ -1,0 +1,43 @@
+@mixin abscontain {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// media mananger
+/*
+0-600px :phone - phone
+600-900px: Tablt portrait - tab-port
+900 - 1200px : Tablet landscape - tab-land
+(1200 - 1800px : is where normal styles apply)
+1800px + * : Big desktop - big-desktop
+
+1em = 16px
+order : base + typo > general + gird > page layout > component
+
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) /*(600/16) */ {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) /*(900/16) */ {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) /*(1200/16) */ {
+      @content;
+    }
+  }
+  // (1200 - 1800px : is where normal styles apply)
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) /*(1800/16) */ {
+      @content;
+    }
+  }
+}
